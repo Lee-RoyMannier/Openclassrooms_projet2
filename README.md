@@ -29,7 +29,7 @@ Windows:
 ```
 env\scripts\activate.bat
 ```
-Linux:
+Linux/ macOS:
 ```
 source env/bin/activate
 ```
