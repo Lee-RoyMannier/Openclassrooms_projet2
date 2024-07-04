@@ -18,7 +18,7 @@ Comment l'utiliser:
 Commencez tout d'abord par installer Python.
 Lancez ensuite la console, placez vous dans le dossier de votre choix puis clonez ce repository:
 ```
-git clone [https://github.com/Lee-RoyMannier/Openclassrooms_projet2]
+git clone https://github.com/Lee-RoyMannier/Openclassrooms_projet2
 ```
 Placez vous dans le dossier Openclassrooms_projet2, puis créez un nouvel environnement virtuel:
 ```
