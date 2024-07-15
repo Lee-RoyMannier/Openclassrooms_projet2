@@ -3,13 +3,15 @@ import json
 from pathlib import Path
 import requests
 
-from constants import USER_DIR, JSON_NAME
+from scrapper_modules.constants import USER_DIR, JSON_NAME
 
 class GetLinks:
     nb_page: int = 1
     URL: str = r"https://books.toscrape.com/catalogue/"
     
     def __init__(self):
+        # Vérification de l'existence du fichier JSON
+        # Si le fichier n'existe pas, on le crée
         print("Init GetLinks")
         self.p = Path(USER_DIR + JSON_NAME)
         if not self.p.exists():
@@ -25,6 +27,8 @@ class GetLinks:
 
 
     def get_all_links(self, page=1, mode="all", category=""):
+        # Récupération de tous les liens
+        # Si la page est spécifiée, on récupère les liens jusqu'à cette page
         for i in range(self.nb_page,page):
             page_link = "page-" + str(i) + ".html"
             req = requests.get(self.URL + page_link)
@@ -37,6 +41,7 @@ class GetLinks:
                     self.links.append(req.url)
 
     def save_to_json(self):
+        # Sauvegarde des liens dans un fichier JSON
         with open(self.p, 'w') as f:
             json.dump(self.links, f)
             print("File saved")

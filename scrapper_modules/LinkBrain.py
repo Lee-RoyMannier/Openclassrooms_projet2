@@ -1,5 +1,4 @@
-from constants import HREF_FULL_LINK
-import requests
+from scrapper_modules.constants import HREF_FULL_LINK
 
 class LinkBrain:
     STARS_TRANSFORMATION = {

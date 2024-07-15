@@ -63,7 +63,8 @@ def main():
             for i,row in data_books.iterrows():
                 url = row["image_url"]
                 response = requests.get(url)
-                name_file = row["title"] + ".jpg"
+                title = row["category"].upper() +"_"+row["title"].replace(" ", "_").replace(":", "_").replace("/", "_").replace(".", "_").replace(",", "_").replace("?", "_")
+                name_file = title + ".jpg"
                 file_path = p / name_file
                 if response.status_code == 200:
                     with open(file_path, 'wb') as file:

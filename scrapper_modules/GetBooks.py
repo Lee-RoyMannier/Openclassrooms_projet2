@@ -3,10 +3,12 @@ import json
 from pathlib import Path
 import requests
 
-from constants import USER_DIR, LINKS_BOOKS, HREF_FULL_LINK
+from scrapper_modules.constants import USER_DIR, LINKS_BOOKS, HREF_FULL_LINK
 
 class GetBooksFromPage:
     def __init__(self):        
+        # Vérification de l'existence du fichier JSON
+        # Si le fichier n'existe pas, on le crée
         self.p = Path(USER_DIR + LINKS_BOOKS)
         print(self.p)
         if not self.p.exists():
@@ -20,6 +22,7 @@ class GetBooksFromPage:
                     self.books = json.load(file_opened)
 
     def get_books(self, soup):
+        # Récupération de tous les liens
         get_a = soup.find_all('div', class_="image_container")
         for a in get_a:
             href = HREF_FULL_LINK + "catalogue/" + a.find('a')['href']
