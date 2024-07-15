@@ -1,3 +1,9 @@
 .*jpg
+.*json
+.*jpeg
+.*csv
 .*png
 .env
+.env/*
+
+.all_images
